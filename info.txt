@@ -1,2 +1,5 @@
 1. Install react-router WEB
   sudo yarn add react-router-dom@4.2.2
+
+2. redux
+  sudo yarn add redux@3.7.2
