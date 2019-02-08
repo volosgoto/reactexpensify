@@ -78,6 +78,3 @@ let   [, , , largeCoffeePrice] = coffee;
 console.log(`Medium ${drink} costs ${mediumCoffeePrice}`);
 console.log(`Large ${drink} costs ${largeCoffeePrice}`);
 
-
-
-

@@ -4,11 +4,17 @@ import { createStore } from "redux";
 const store = createStore((state = { count: 0 }, action) => {
   switch(action.type){
     case 'INCREMENT':
-      return { count: state.count + 1 };
+      let increment = (typeof action.incrementBy === 'number') ? action.incrementBy : 1;
+      return { count: state.count + increment };
     case 'DECREMENT':
-      return { count: state.count - 1 };  
+      let decrement = (typeof action.decrementBy === 'number') ? action.decrementBy : 1;
+      return { count: state.count - decrement };  
     case 'RESET':
       return {count: state.count = 0}; 
+    case 'SET':
+      return { 
+        count: action.count // 101
+      };  
     default: 
       return state;  
   }
@@ -22,25 +28,53 @@ const store = createStore((state = { count: 0 }, action) => {
 });
 
 // Fetch current state
-console.log(store.getState());
+// console.log(store.getState());
 
+
+// Watch for changes of redux store state
+let unsubscribe = store.subscribe(()=>{
+  console.log(store.getState());
+});
 
 // ACTIONS - object for change store
-// increment, decrement, reset
 store.dispatch({
     type: 'INCREMENT'
 });
+
+store.dispatch({
+  type: 'INCREMENT',
+  incrementBy: 5
+
+});
+
+store.dispatch({
+  type: 'DECREMENT',
+  decrementBy: 10
+});
+
 store.dispatch({
   type: 'DECREMENT'
 });
+
+store.dispatch({
+  type: 'SET',
+  count: 101 // action.count
+});
+
+
+unsubscribe(); // stops the subscription
+
 store.dispatch({
   type: 'DECREMENT'
 });
-store.dispatch({
-  type: 'DECREMENT'
-});
+
 store.dispatch({
   type: 'RESET'
 });
 
-console.log(store.getState());
+// Set state
+store.dispatch({
+  type: 'SET',
+  count: 322 // action.count
+});
+
