@@ -3,3 +3,6 @@
 
 2. redux
   sudo yarn add redux@3.7.2
+
+3. Simple, fast generation UUIDS. 
+  sudo yarn add uuid@3.3.2
