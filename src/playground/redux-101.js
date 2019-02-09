@@ -20,13 +20,6 @@ const store = createStore((state = { count: 0 }, action) => {
     default:
       return state;
   }
-
-  // if (action.type == 'INCREMENT'){
-  //   return {
-  //     count: state.count + 1
-  //   };
-  // }
-  // return state;
 });
 
 // Fetch current state
