@@ -1,48 +1,54 @@
-import { createStore } from 'redux';
+import { createStore } from "redux";
 
 // Action generators - functions that return action objects
 
 const incrementCount = ({ incrementBy = 1 } = {}) => ({
-  type: 'INCREMENT',
+  type: "INCREMENT",
   incrementBy
 });
 
 const decrementCount = ({ decrementBy = 1 } = {}) => ({
-  type: 'DECREMENT',
+  type: "DECREMENT",
   decrementBy
 });
 
 const setCount = ({ count }) => ({
-  type: 'SET',
+  type: "SET",
   count
 });
 
 const resetCount = () => ({
-  type: 'RESET'
+  type: "RESET"
 });
 
-const store = createStore((state = { count: 0 }, action) => {
+// Reducers
+// 1. Reducers are pure functions (output just depends from the input)
+// 2. Newer change state or action
+
+const countReducer = (state = { count: 0 }, action) => {
   switch (action.type) {
-    case 'INCREMENT':
+    case "INCREMENT":
       return {
         count: state.count + action.incrementBy
       };
-    case 'DECREMENT':
+    case "DECREMENT":
       return {
         count: state.count - action.decrementBy
       };
-    case 'SET':
+    case "SET":
       return {
         count: action.count
       };
-    case 'RESET':
+    case "RESET":
       return {
         count: 0
       };
     default:
       return state;
   }
-});
+};
+
+const store = createStore(countReducer);
 
 const unsubscribe = store.subscribe(() => {
   console.log(store.getState());
