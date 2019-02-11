@@ -6,3 +6,7 @@
 
 3. Simple, fast generation UUIDS. 
   sudo yarn add uuid@3.3.2
+
+4. babel-plugin-transform-object-rest-spread
+ yarn add babel-plugin-transform-object-rest-spread@6.26.0
+
