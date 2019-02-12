@@ -1,80 +1,45 @@
-// OBJECT DESTRUCTURING
+//
+// Object destructuring
+//
 
-// let person = {
-  // name: 'Andrew',
-  // job is not in object.
-//   age: 36,
+// const person = {
+//   name: 'Andrew',
+//   age: 27,
 //   location: {
-//     city: 'Kiev',
-//     temperature: 25
+//     city: 'Philadelphia',
+//     temp: 88
 //   }
 // };
 
-// let name = person.name;
-// let age = person.age;
+// const { name: firstName = 'Anonymous', age } = person;
+// console.log(`${firstName} is ${age}.`);
 
-
-// Object Destruction
-// let {name, age, location} = person;
-// console.log(`Name: ${name}, age: ${age}`);
-
-
-// let {city, temperature} = person.location;
-// if(temperature && city){
-//   console.log(`There is ${temperature} in ${city}`);
+// const { city, temp: temperature } = person.location;
+// if (city && temperature) {
+//   console.log(`It's ${temperature} in ${city}.`);
 // }
 
-// Destruct and rename local veriable
-// let {city, temperature: temp} = person.location;
-// if(temp && city){
-//   console.log(`There is ${temp} in ${city}`);
-// }
-
-// Default values
-// let {job = 'Driver', name = 'Anonymous', age: personAge} = person; // property jop set as default
-// console.log(`Person ${name}, ${personAge}, ${job}`);
-
-// let book = {
-//   title: 'Hound',
-//   author: 'A. Doyle',
-//   pub: {
-//     // name: 'Punguin'
+// const book = {
+//   title: 'Ego is the Enemy',
+//   author: 'Ryan Holiday',
+//   publisher: {
+//     // name: 'Penguin'
 //   }
 // };
 
-// let {name: publisherName = 'Self-Publisher'} = book.pub;
-// console.log(publisherName);
+// const { name: publisherName = 'Self-Published' } = book.publisher;
 
-// ====================================================================
+// console.log(publisherName); // Penguin, Self-Published
 
+//
+// Array destructuring
+//
 
-//  ARRAYS DESTRUCTURING
-// let address = [
-//   'street 12345 Chicago',
-//   'Philadelphia',
-//   'Pennsylvania',
-//   '14799'
-// ];
-// let address = [];
+// const address = ['1299 S Juniper Street', 'Philadelphia', 'Pennsylvania', '19147'];
+// const [, city, state = 'New York'] = address;
+// console.log(`You are in ${city} ${state}.`);
 
-// Matching by position
-// let [street, city, state, zip] = address;
+const item = ['Coffee (iced)', '$3.00', '$3.50', '$3.75'];
+const [itemName, , mediumPrice] = item;
 
-// Skip 0 index
-// let [, city, state, zip] = address;
-
-// Default naming
-// let [state = 'Default State'] = address;
-
-// console.log(`City: ${address[1]}, State:${address[2]}`);
-// console.log(`City: ${city}, State:${state}`);
-// console.log(`State:${state}`);
-
-
-let coffee = ['Coffee(hot)', '$2.00', '$2.50', '$2.75'];
-let   [drink] = coffee;
-let   [, , mediumCoffeePrice] = coffee;
-let   [, , , largeCoffeePrice] = coffee;
-console.log(`Medium ${drink} costs ${mediumCoffeePrice}`);
-console.log(`Large ${drink} costs ${largeCoffeePrice}`);
-
+console.log(`A medium ${itemName} costs ${mediumPrice}`);

@@ -61,7 +61,6 @@ const setEndDate = (endDate) => ({
   endDate
 });
 
-
 // Expenses Reducer
 
 const expensesReducerDefaultState = [];
