@@ -10,3 +10,6 @@
 4. babel-plugin-transform-object-rest-spread
  yarn add babel-plugin-transform-object-rest-spread@6.26.0
 
+5. add react-redux
+
+  yarn add react-redux@5.0.5
